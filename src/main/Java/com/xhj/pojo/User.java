@@ -1,9 +1,15 @@
 package com.xhj.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 public class User {
     private int id;
     private String name;
     private int age;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date startTime;
 
     public User() {
     }
@@ -17,6 +23,13 @@ public class User {
         this.id = id;
         this.name = name;
         this.age = age;
+    }
+
+    public User(int id, String name, int age, Date startTime) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.startTime = startTime;
     }
 
     public int getId() {
@@ -43,12 +56,21 @@ public class User {
         this.age = age;
     }
 
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
     @Override
     public String toString() {
-        return "\nUser{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", startTime=" + startTime +
                 '}';
     }
 }

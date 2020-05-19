@@ -34,9 +34,8 @@ public class UserController {
         modelAndView.addObject("users",users);
         return modelAndView;
     }
-    private Date startTime;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
     @RequestMapping("/delete")
     public ModelAndView delete(@RequestParam("id") int id) {
 //        System.out.println("id:"+id);
