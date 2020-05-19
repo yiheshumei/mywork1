@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhj.mapper.UserMapper">
+  <select id="selectAll" resultType="com.xhj.pojo.User">
+    select * from tb_user;
+  </select>
+
+<!--  select * from tb_user where name like "%"#{name}"%";-->
+  <select id="selectByName" resultType="com.xhj.pojo.User" parameterType="java.lang.String">
+    select * from tb_user
+    <where>
+      <if test="_parameter!=null and _parameter!=''">
+        name like concat('%',#{name},'%');
+      </if>
+    </where>
+  </select>
+
+  <delete id="delete" parameterType="int">
+    delete from tb_user where id=#{id};
+  </delete>
+
+  <update id="update" parameterType="com.xhj.pojo.User">
+    update tb_user set name=#{name},age=#{age} where id=#{id};
+  </update>
+
+  <insert id="insert" parameterType="com.xhj.pojo.User">
+    insert into tb_user(name,age) values(#{name},#{age});
+  </insert>
+</mapper>
