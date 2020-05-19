@@ -3,11 +3,13 @@ package com.xhj.controller;
 import com.xhj.pojo.User;
 import com.xhj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -32,7 +34,9 @@ public class UserController {
         modelAndView.addObject("users",users);
         return modelAndView;
     }
+    private Date startTime;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @RequestMapping("/delete")
     public ModelAndView delete(@RequestParam("id") int id) {
 //        System.out.println("id:"+id);

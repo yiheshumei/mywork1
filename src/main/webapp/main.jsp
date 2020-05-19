@@ -7,6 +7,7 @@
     请输入用户姓名：<input type="text" name="name"/>
     <input type="submit" value="查询"/>
 </form>
+<fmt:formatDate value="${row.startTime}" pattern="yyyy-MM-dd"/>
 <table border="1">
     <tr>
 <%--        <th>用户编号</th>--%>
@@ -21,12 +22,12 @@
             <td>${user.age}</td>
             <td>
                 <a href="./delete?id=${user.id}">删除</a>
-                <a href="./tiaozhuanupdate?id=${user.id}&&name=${user.name}&&age=${user.age}">修改</a>
+<%--                <a href="./tiaozhuanupdate?id=${user.id}&&name=${user.name}&&age=${user.age}">修改</a>--%>
             </td>
         </tr>
     </c:forEach>
     <tr>
-        <td align="center" colspan="3"><a href="./insert.jsp">新增</a> </td>
+<%--        <td align="center" colspan="3"><a href="./insert.jsp">新增</a> </td>--%>
     </tr>
 </table>
 </div>
