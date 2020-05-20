@@ -7,7 +7,7 @@
     function del(id) {
         var flag = window.confirm("确定删除吗");
         if(flag) {
-            window.location.href = "deleteEmployee?id="+id;
+            window.location.href = "delete?id="+id;
         }else {
             return;
         }
@@ -33,7 +33,6 @@
             <td>${user.age}</td>
             <td>
                 <fmt:formatDate value="${user.startTime}" pattern="yyyy-MM-dd"/>
-<%--                    ${user.startTime}--%>
             </td>
             <td>
 <%--                <a href="./delete?id=${user.id}">删除</a>--%>
