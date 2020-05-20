@@ -27,12 +27,12 @@
             </td>
             <td>
                 <a href="./delete?id=${user.id}">删除</a>
-<%--                <a href="./tiaozhuanupdate?id=${user.id}&&name=${user.name}&&age=${user.age}">修改</a>--%>
+                <a href="./tiaozhuanupdate?id=${user.id}&&name=${user.name}&&age=${user.age}">修改</a>
             </td>
         </tr>
     </c:forEach>
     <tr>
-<%--        <td align="center" colspan="3"><a href="./insert.jsp">新增</a> </td>--%>
+        <td align="center" colspan="4"><a href="./insert.jsp">新增</a> </td>
     </tr>
 </table>
 </div>

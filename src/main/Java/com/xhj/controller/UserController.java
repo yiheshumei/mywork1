@@ -19,6 +19,7 @@ public class UserController {
 
     @RequestMapping("/selectAll")
     public ModelAndView selectAll() {
+        System.out.println("分支");
         List<User> users = userService.selectAll();
         // 新建时加页面
         ModelAndView modelAndView = new ModelAndView("/index.jsp");
