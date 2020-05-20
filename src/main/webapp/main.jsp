@@ -3,6 +3,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
+<script type="text/javascript">
+    function del(id) {
+        var flag = window.confirm("确定删除吗");
+        if(flag) {
+            window.location.href = "deleteEmployee?id="+id;
+        }else {
+            return;
+        }
+    }
+</script>
 <h2>main</h2>
 <form action="/mywork1/selectByName" method="post">
     请输入用户姓名：<input type="text" name="name"/>
@@ -26,13 +36,14 @@
 <%--                    ${user.startTime}--%>
             </td>
             <td>
-                <a href="./delete?id=${user.id}">删除</a>
-<%--                <a href="./tiaozhuanupdate?id=${user.id}&&name=${user.name}&&age=${user.age}">修改</a>--%>
+<%--                <a href="./delete?id=${user.id}">删除</a>--%>
+                <a href="#" onclick="del(${employee.id})">删除</a>
+                <a href="./tiaozhuanupdate?id=${user.id}&&name=${user.name}&&age=${user.age}">修改</a>
             </td>
         </tr>
     </c:forEach>
     <tr>
-<%--        <td align="center" colspan="3"><a href="./insert.jsp">新增</a> </td>--%>
+        <td align="center" colspan="3"><a href="./insert.jsp">新增</a> </td>
     </tr>
 </table>
 </div>
