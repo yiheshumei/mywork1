@@ -21,7 +21,7 @@ public class UserController {
     public ModelAndView selectAll() {
         List<User> users = userService.selectAll();
         // 新建时加页面
-        ModelAndView modelAndView = new ModelAndView("/index.jsp");
+        ModelAndView modelAndView = new ModelAndView("/main.jsp");
         // 在modelAndView中存users到页面中
         modelAndView.addObject("users",users);
         return modelAndView;
@@ -29,10 +29,14 @@ public class UserController {
 
     @RequestMapping("/selectByName")
     public ModelAndView selectByName(String name) {
-        ModelAndView modelAndView = new ModelAndView("main.jsp");
-        List<User> users = userService.selectByName(name);
-        modelAndView.addObject("users",users);
-        return modelAndView;
+        if(name==null) {
+            return selectAll();
+        }else {
+            ModelAndView modelAndView = new ModelAndView("main.jsp");
+            List<User> users = userService.selectByName(name);
+            modelAndView.addObject("users",users);
+            return modelAndView;
+        }
     }
 
 
@@ -53,7 +57,7 @@ public class UserController {
     public ModelAndView insert(User user) {
         int count = userService.insert(user);
         if (count>0) {
-            return new ModelAndView("/selectByName");
+            return new ModelAndView("/selectAll");
         }
         return selectAll();
     }
@@ -74,7 +78,7 @@ public class UserController {
         User user = new User(id,name,age);
         int count = userService.update(user);
         if (count>0) {
-            return new ModelAndView("/selectByName");
+            return new ModelAndView("/selectAll");
         }
 
         return selectAll();

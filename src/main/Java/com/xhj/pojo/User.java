@@ -19,6 +19,12 @@ public class User {
         this.age = age;
     }
 
+    public User(String name, int age, Date startTime) {
+        this.name = name;
+        this.age = age;
+        this.startTime = startTime;
+    }
+
     public User(int id, String name, int age) {
         this.id = id;
         this.name = name;

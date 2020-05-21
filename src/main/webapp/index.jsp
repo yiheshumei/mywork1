@@ -3,7 +3,7 @@
 <html>
 <body>
 <h2>index</h2>
-<jsp:forward page="main.jsp"></jsp:forward>
+<jsp:forward page="/selectAll"></jsp:forward>
 <%--    <table border="1">--%>
 <%--        <tr>--%>
 <%--            <th>用户编号</th>--%>
